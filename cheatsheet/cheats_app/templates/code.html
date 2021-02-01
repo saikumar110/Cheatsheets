@@ -1,0 +1,51 @@
+<!-- Inheriting the base layout -->
+{% extends "base_layout.html" %}
+<!-- Loding the static files -->
+{% load static%}
+<!-- body contents -->
+{% block content %}
+<!-- Tab-title -->
+<!-- {% block tab-title %} {{tab_title}} {% endblock tab-title %} -->
+<div class="content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+                {% for obj in code_contents %}
+                <div class="card">
+
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title "> {{obj.Language}}</h4>
+                        <p class="card-category">{{obj.sub_topic_name}} </p>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+
+
+                            <pre class="  {{obj.Language}}  " style="
+                                                cursor: pointer !important;
+                                color: white !important;
+                                border: 1px solid white !important;
+                                border-radius: 15px !important;
+                                padding: 25px 24px !important; padding: 25px !important;
+                                
+                                word-wrap: normal !important;
+                                white-space: pre !important;
+                                min-height: fit-content !important;
+                                
+            max-height: 400px !important;"><code>{{obj.code}}</code></pre>
+                        </div>
+                    </div>
+                </div>{% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- EndBody -->
+{% endblock %}
